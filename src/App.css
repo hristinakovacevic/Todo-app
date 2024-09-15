@@ -1,0 +1,84 @@
+.wrapper {
+  background-image: url("./assets/todo-background.png");
+
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+input {
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+  height: 4vh;
+  box-shadow: 5px 5px 10px gray;
+  text-align: center;
+}
+input:focus {
+  border: none;
+  outline: none;
+}
+.f-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  width: 30vw;
+  max-width: calc(100% - 70%);
+}
+.sub-btn {
+  border: none;
+  padding: 1em;
+  border-radius: 10px;
+  background-color: #7bbee8;
+  color: white;
+  box-shadow: 5px 5px 10px gray;
+}
+.sub-btn:hover {
+  background-color: #36a3e7;
+  cursor: pointer;
+  border: none;
+}
+.todo-wrap {
+  color: white;
+  margin-top: 5px;
+  border-radius: 20px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 1.5rem;
+}
+
+img {
+  height: 30px;
+  width: 50px;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    background-image: url("./assets/todo-background-mobile.png");
+
+    background-size: cover;
+    background-position: center;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
