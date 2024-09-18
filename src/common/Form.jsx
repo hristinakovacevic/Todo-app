@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { TodoContext } from "../context/todoContext";
 import Button from "./Button";
 
@@ -6,15 +6,19 @@ function Form() {
   const [todoValue, setTodoValue] = useState("");
   const { todoList, setTodoList } = useContext(TodoContext);
   const uniqueId = Date.now();
+
   function handleTodo(e) {
     setTodoValue(e.target.value);
   }
+  const createDate = useCallback((date) => {
+    return date.toLocaleDateString("en-US");
+  }, []);
   function addTodo(e) {
     e.preventDefault();
 
     setTodoList((prevTodoList) => [
       ...prevTodoList,
-      { todoName: todoValue, id: uniqueId },
+      { id: uniqueId, todoName: todoValue, date: createDate(new Date()) },
     ]);
 
     setTodoValue("");
@@ -31,7 +35,7 @@ function Form() {
         onChange={handleTodo}
         placeholder="something"
       />
-      <Button name="Create" />
+      <Button name="Create" className="btn-create" type="submit" />
     </form>
   );
 }

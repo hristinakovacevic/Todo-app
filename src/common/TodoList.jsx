@@ -6,7 +6,7 @@ function TodoList() {
   const { todoList } = useContext(TodoContext);
 
   return (
-    <div>
+    <div className="todo_container">
       {todoList.length === 0 && <p>No todos</p>}
       {todoList.map((todo) => {
         return <Todo todo={todo} key={todo.key} />;

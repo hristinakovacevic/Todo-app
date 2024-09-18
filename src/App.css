@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
 .wrapper {
   background-image: url("./assets/todo-background.png");
-
+  font-family: "Raleway", sans-serif;
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -12,13 +14,49 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+@keyframes todo {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.todo-wrap {
+  color: rgb(33, 32, 32);
+  background-color: rgba(245, 245, 220, 0.848);
+  border-bottom: 1px solid gray;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  padding: 0.5em;
+  animation: todo 1s;
+}
+.todo-wrap__todo-btns {
+  display: flex;
+  align-items: center;
+}
+p {
+  width: 80%;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+  color: rgb(50, 49, 49);
+}
+.date-p {
+  color: gray;
+  border-bottom: 1px solid rgb(212, 211, 211);
+  font-size: small;
+  overflow-wrap: anywhere;
+}
 input {
   border: none;
   padding: 8px;
+  width: 30vw;
   border-radius: 10px;
   height: 4vh;
   box-shadow: 5px 5px 10px gray;
-  text-align: center;
 }
 input:focus {
   border: none;
@@ -26,38 +64,63 @@ input:focus {
 }
 .f-wrapper {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+
+  gap: 1em;
   padding: 5px;
   border-radius: 5px;
-  width: 30vw;
-  max-width: calc(100% - 70%);
+  max-width: calc(100% - 65vw);
+}
+.todo_container {
+  width: 100%;
+  max-width: calc(100% - 65vw);
+}
+
+@keyframes btns {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.btn-container {
+  display: flex;
+
+  justify-content: space-evenly;
+}
+
+.btn-delete {
+  background-color: rgb(247, 75, 53);
+}
+.btn-edit {
+  background-color: orange;
+}
+.btn-save {
+  background-color: rgb(47, 150, 47);
+}
+.btn-create {
+  background-color: rgb(81, 94, 211);
+}
+button {
+  width: 100px;
+  height: 40px;
 }
 .sub-btn {
   border: none;
-  padding: 1em;
+
+  font-family: "Cabin", sans-serif;
+  font-size: large;
+  padding: 0.5em;
   border-radius: 10px;
-  background-color: #7bbee8;
+  box-shadow: 5px 5px 10px rgb(103, 103, 103);
   color: white;
-  box-shadow: 5px 5px 10px gray;
 }
 .sub-btn:hover {
-  background-color: #36a3e7;
+  transition: 1s;
   cursor: pointer;
   border: none;
-}
-.todo-wrap {
-  color: white;
-  margin-top: 5px;
-  border-radius: 20px;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  margin: 0 auto;
-  max-width: 1170px;
-  display: grid;
-  align-items: center;
-  grid-template-columns: 2fr 1fr;
-  grid-column-gap: 1.5rem;
 }
 
 img {
@@ -72,13 +135,21 @@ img:hover {
 @media only screen and (max-width: 600px) {
   .wrapper {
     background-image: url("./assets/todo-background-mobile.png");
-
     background-size: cover;
     background-position: center;
-
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     width: 100%;
   }
+  .f-wrapper {
+    max-width: calc(100% - 12vw);
+  }
+  .todo_container {
+    max-width: calc(100% - 12vw);
+  }
 }
+/* @media (min-width: 900px) {
+  .todo_container {
+    width: 100%;
+    max-width: calc(100% - 65vw);
+  }
+} */
